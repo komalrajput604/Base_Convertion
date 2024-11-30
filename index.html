@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RID Based Convertion</title>
+</head>
+<body>
+    <h1>RID Baesed Convertion</h1>
+    <label>Number:</label>
+    <input id="d1" type="text"><br><br>
+    <label>From</label>
+    <select id="finp">
+        <option value="b">Binary Number</option>
+        <option value="o">Octal Number</option>
+        <option value="h">HexaDecimal Number</option>
+        <option value="d">Decimal Number</option>
+    </select>
+    <label>To</label>
+    <select id="tinp">
+        <option value="b">Binary Number</option>
+        <option value="o">Octal Number</option>
+        <option value="h">HexaDecimal Number</option>
+        <option value="d">Decimal Number</option>
+    </select>
+
+    <button type="button" onclick="convert()">Convert</button>
+
+    <br><br><br><br>
+    <br><br><br><br>
+    <label>Result</label>
+    <input type="text" id="res">
+    <script>
+        function convert(){
+            let num=document.getElementById("d1").value.trim()
+            let frominp=document.getElementById("finp").value
+            let toinp=document.getElementById("tinp").value
+            let dec_num;
+            let result=""
+
+          if ( frominp==="b"){
+           dec_num= parseInt(num,2)
+          
+          }
+
+          else if(frominp==="o"){
+            dec_num=parseInt(num,8)
+          }
+
+          else if(frominp==="h"){
+            dec_num=parseInt(num,16)
+          }
+          else if(frominp==="d"){
+            dec_num=parseInt(num,10)
+
+          }
+
+          // convert decimal any number sytem
+
+          if(toinp==="b"){
+            result=dec_num.toString(2)
+
+          }
+          else if(toinp==="o"){
+            result=dec_num.toString(8)
+          }
+          else if(toinp==="h"){
+            result=dec_num.toString(16)
+
+          }
+        else if(toinp==="d"){
+            result=dec_num.toString(10)
+        }
+
+          document.getElementById("res").value=result
+
+
+        }
+       
+    </script>
+    
+
+    
+    
+</body>
+</html>
